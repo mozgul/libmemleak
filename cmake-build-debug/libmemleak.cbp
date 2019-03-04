@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="libmemleak"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libmemleak">
+				<Option output="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/libmemleak" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mozgul/projects/third/tools/libmemleak/."/>
+					<Add directory="/home/mozgul/projects/third/tools/libmemleak/src/include"/>
+					<Add directory="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 libmemleak"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libmemleak/fast">
+				<Option output="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/libmemleak" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mozgul/projects/third/tools/libmemleak/."/>
+					<Add directory="/home/mozgul/projects/third/tools/libmemleak/src/include"/>
+					<Add directory="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 libmemleak/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mozgul/projects/third/tools/libmemleak/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/config.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/addr2line.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/include/BacktraceEntry.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/include/Header.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/include/Interval.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/include/addr2line.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/include/sort.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/memleak.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/memleak_control.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/misc.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/misc.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/red_black_tree.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/red_black_tree.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/stack.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/stack.h">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/rb_tree/test_red_black_tree.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/src/sort.c">
+			<Option target="libmemleak"/>
+		</Unit>
+		<Unit filename="/home/mozgul/projects/third/tools/libmemleak/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

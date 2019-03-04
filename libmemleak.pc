@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libmemleak
+Description: Detect leaking memory by allocation backtrace
+Version: 0.1.1
+Libs: -L${libdir} -lmemleak
+Cflags:  -I${includedir}
