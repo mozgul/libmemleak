@@ -1356,7 +1356,8 @@ static void *monitor(void *dummy __attribute__((unused))) {
                                 "stats N  : Automatically print stats every N seconds (use 0 to turn off).\n",
                                 "restart M: Automatically restart every N * M stats.\n",
                                 "list N   : When printing stats, print only the first N backtraces.\n",
-                                "dump N   : Print backtrace number N.\n"
+                                "dump N   : Print backtrace number N.\n",
+                                "allbt [fn]: Print all backtraces to a file.\n"
                         };
                         for (size_t line = 0; line < sizeof(helptext) / sizeof(char *); ++line)
                             my_write(fd, helptext[line], strlen(helptext[line]));
@@ -1448,14 +1449,18 @@ static void *monitor(void *dummy __attribute__((unused))) {
                         if (fp == NULL) {
                             WRITE_BACK(buf, "Unable to open file [%s] for writing.\n", filename);
                         }
-                        WRITE_BACK(buf, "  #\tAllocs\tSize\n");
+                        fprintf(fp, "  #\tAllocs\tSize\n");
                         pthread_mutex_lock(&memleak_mutex);
                         BacktraceEntry *entry = stats.first_entry_n;
+                        int total_bt = 0;
                         while (entry != NULL) {
-                            WRITE_BACK(buf, "%d\t%d\t%d\n", entry->backtrace_nr, entry->allocations, entry->backtrace_size);
+                            fprintf(fp, "%d\t%d\t%d\n", entry->backtrace_nr, entry->allocations, entry->backtrace_size);
                             entry = entry->next_n;
+                            total_bt++;
                         }
                         pthread_mutex_unlock(&memleak_mutex);
+                        fclose(fp);
+                        WRITE_BACK(buf, "Total %d backtraces were written to %s\n", total_bt, filename);
                     } else if (strncmp(buf, "dump ", 5) == 0) {
                         int arg = atoi(buf + 5);
                         pthread_mutex_lock(&memleak_mutex);
