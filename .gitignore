@@ -12,3 +12,8 @@ install-sh
 ltmain.sh
 missing
 m4
+cmake-build-debug/
+*.lo
+*.la
+*.o
+*/.libs/*

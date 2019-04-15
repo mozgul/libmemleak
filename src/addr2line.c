@@ -422,6 +422,24 @@ void addr2line_print(FILE* fbacktraces, void** backtrace, size_t backtrace_size)
     free(strs);
 }
 
+void addr2line_summary(FILE* fbacktraces, void** backtrace, size_t backtrace_size)
+{
+    char** strs = NULL;
+    for (unsigned int i = 0; i < backtrace_size; ++i)
+    {
+        void* addr = backtrace[i];
+        rb_red_blk_node* node = RBExactQuery(frame_map, addr);
+        if (node)
+        {
+            fprintf(fbacktraces, " #%-2d %.18s ", i, (char const*)(node->info));
+            continue;
+        } else {
+            fprintf(fbacktraces, " #%-2d ", i);
+        }
+    }
+    fprintf(fbacktraces, "\n");
+}
+
 #if 0
 int main()
 {

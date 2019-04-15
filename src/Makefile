@@ -346,7 +346,7 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
-LIBBFD = 
+LIBBFD = -lbfd
 LIBCWD_FLAGS = 
 LIBCWD_LIBS = 
 LIBCWD_R_FLAGS = -pthread
@@ -451,7 +451,7 @@ libmemleak_la_SOURCES = \
 	sort.c \
 	sort.hc
 
-libmemleak_la_LIBADD = rb_tree/librbtree.la 
+libmemleak_la_LIBADD = rb_tree/librbtree.la -lbfd
 libmemleak_la_LDFLAGS = -version-info $(VERSIONINFO) -no-undefined
 memleak_control_SOURCES = memleak_control.c
 memleak_control_LDADD = -lreadline

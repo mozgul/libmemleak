@@ -1434,33 +1434,37 @@ static void *monitor(void *dummy __attribute__((unused))) {
                             len = 80;
                         }
                         my_write(fd, buf, len);
-                    } else if (strncmp(buf, "allbt ", 5) == 0) {
-                        char* argument = buf + 5;
-                        char filename[1024];
+                    } else if (strncmp(buf, "allbt", 5) == 0) {
                         static int counter;
-                        sprintf(filename, "allbt-%d.txt", ++counter);
-                        if (strlen(argument) > 0) {
-                            strncpy(filename, argument, sizeof(filename));
-                        }
-#define WRITE_BACK(buf, ...) { len = snprintf(buf, sizeof(buf), __VA_ARGS__); if (len > 80) {  buf[79] = '\n'; len = 80; } }
-                        WRITE_BACK(buf, "Dumping all backtraces to %s.\n", filename);
-                        my_write(fd, buf, len);
+//                        char* argument = buf + 6;
+                        char filename[1024];
+                        memset(filename, 0, sizeof(filename));
+//                        if (strlen(argument) > 0) {
+//                            strncpy(filename, argument, sizeof(filename));
+//                        } else {
+                            sprintf(filename, "allbt-%d.txt", ++counter);
+//                        }
+#define WRITE_BACK(buf, ...) { len = snprintf(buf, sizeof(buf), __VA_ARGS__); if (len > 80) {  buf[79] = '\n'; len = 80; } } my_write(fd, buf, len)
+                        WRITE_BACK(buf, "Dumping all backtraces to [%s].\n", filename);
                         FILE* fp = fopen(filename, "w");
                         if (fp == NULL) {
                             WRITE_BACK(buf, "Unable to open file [%s] for writing.\n", filename);
+                        } else {
+                            fprintf(fp, "  #\tAllocs\tSize\n");
+                            pthread_mutex_lock(&memleak_mutex);
+                            BacktraceEntry *entry = stats.first_entry_n;
+                            int total_bt = 0;
+                            while (entry != NULL) {
+                                WRITE_BACK(buf, "Writing %d, bt: %p size: %d\n", entry->backtrace_nr, entry->ptr, entry->backtrace_size);
+                                fprintf(fp, "%d\t%d\t%d", entry->backtrace_nr, entry->allocations, entry->backtrace_size);
+                                addr2line_summary(fp, entry->ptr, entry->backtrace_size);
+                                entry = entry->next_n;
+                                total_bt++;
+                            }
+                            pthread_mutex_unlock(&memleak_mutex);
+                            fclose(fp);
+                            WRITE_BACK(buf, "Total %d backtraces were written to %s\n", total_bt, filename);
                         }
-                        fprintf(fp, "  #\tAllocs\tSize\n");
-                        pthread_mutex_lock(&memleak_mutex);
-                        BacktraceEntry *entry = stats.first_entry_n;
-                        int total_bt = 0;
-                        while (entry != NULL) {
-                            fprintf(fp, "%d\t%d\t%d\n", entry->backtrace_nr, entry->allocations, entry->backtrace_size);
-                            entry = entry->next_n;
-                            total_bt++;
-                        }
-                        pthread_mutex_unlock(&memleak_mutex);
-                        fclose(fp);
-                        WRITE_BACK(buf, "Total %d backtraces were written to %s\n", total_bt, filename);
                     } else if (strncmp(buf, "dump ", 5) == 0) {
                         int arg = atoi(buf + 5);
                         pthread_mutex_lock(&memleak_mutex);

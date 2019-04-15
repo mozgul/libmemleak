@@ -60,6 +60,7 @@ void addr2line_init(void);
 
 //! @brief Print a backtrace with source file and line numbers.
 void addr2line_print(FILE* fbacktraces, void** backtrace, size_t backtrace_size);
+void addr2line_summary(FILE* fbacktraces, void** backtrace, size_t backtrace_size);
 
 //! @brief Print number of cache hits.
 double frame_cache_stats(void);
